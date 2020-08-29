@@ -1,7 +1,6 @@
 class APIManager {
     constructor() {
         this.data = {
-            friends: []
         }
     }
     getUserData() {
@@ -13,19 +12,17 @@ class APIManager {
                 let users = response.results
                 this.data.userName = `${users[0].name.first} ${users[0].name.last}`
                 this.data.location = `${users[0].location.city}, ${users[0].location.state}`
-                this.data.image = users[0].picture.large
+                this.data.image = users[0].picture.medium
                 users.splice(0, 1)
-                users.forEach(element => {
-                    this.data.friends.push(`${element.name.first} ${element.name.last}`)
+                this.data.friends = []
+                    users.forEach(element => { 
+                        this.data.friends.push(element.name.first + ' ' + element.name.last)
                 });
             },
             error: function () {
                 alert('something wrong try to refresh')
             }
         });
-        this.getQuote()
-        this.getPokemon()
-        this.getIpsum()
     }
 
 
@@ -70,6 +67,7 @@ class APIManager {
         });
     }
 }
+
 const apiManager = new APIManager();
 
 

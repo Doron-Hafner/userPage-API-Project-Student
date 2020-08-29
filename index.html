@@ -13,22 +13,59 @@
 
 <body>
     <div class="container">	
-        <div class="user-container"></div>	
-        <div class="quote-container"></div>	
-        <div class="content-container">	
-            <div class="pokemon-container"></div>	
-            <div class="meat-container"></div>	
-        </div>	
+        	
+    </div>
+            <div class="buttons">	
+                <button id="loadUserData">Load User Data</button>	
+                <button id="DisplayUser">Display User</button>	
+            </div>	
+
+    <script id="user-template" type="text/x-handlebars-template">
+        <div class="user-container">
+            <div class="user-info">
+                <p>{{userName}}</p>
+                <p>{{location}}</p>
+            </div>
+            <div id="profile-pic"><img src="{{image}}"></div>
+        </div>
+
+        <div class="quote-container">Favorite quote:	
+            <p>{{quote}}</p>
+        </div>
+        
+        <div class="content-container">
+            <div class="pokemon-container">
+                <p id="pokemon-text">Favorite pokemon: {{pokemon}}</p>
+                <img src="https://assets.pokemon.com/assets/cms2/img/pokedex/full/001.png" id="pokemon-image">
+            </div>	
+            <div class="meat-container">About me: 
+                <p class="meat-text">{{about}} </p>
+            </div>	
+        </div>
+    </script>
+    
+    <script id="friends-template" type="text/x-handlebars-template">
         <div class="friends">	
             <h4>Friends</h4>	
             <div class="friends-container">	
+                <ul>
+                    {{#each this}}
+                        <li>{{this}}</li>
+                    {{/each}}
+                </ul>
             </div>	
-        </div>	
-        <div class="buttons">	
-            <button>Load User Data</button>	
-            <button>Display User</button>	
-        </div>	
-    </div>
+        </div>
+    </script>
+   
+
+
+    <script src="https://code.jquery.com/jquery-3.5.1.js" 
+    integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.7.6/handlebars.min.js" 
+    integrity="sha512-zT3zHcFYbQwjHdKjCu6OMmETx8fJA9S7E6W7kBeFxultf75OPTYUJigEKX58qgyQMi1m1EgenfjMXlRZG8BXaw==" crossorigin="anonymous"></script>
+    <script src="APIManager.js"></script>
+    <script src="Renderer.js"></script>
+    <script src="main.js"></script>
 </body>
 
 </html>
