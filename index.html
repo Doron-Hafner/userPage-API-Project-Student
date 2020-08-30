@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>API Project</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Indie+Flower" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" media="screen" href="style.css" />
+
+</head>
+
+<body>
+    <div class="container">	
+        	
+    </div>
+            <div class="buttons">	
+                <button id="loadUserData">Load User Data</button>	
+                <button id="DisplayUser">Display User</button>	
+            </div>	
+
+    <script id="user-template" type="text/x-handlebars-template">
+        <div class="user-container">
+            <div class="user-info">
+                <p>{{userName}}</p>
+                <p>{{location}}</p>
+            </div>
+            <div id="profile-pic"><img src="{{image}}"></div>
+        </div>
+
+        <div class="quote-container">Favorite quote:	
+            <p>{{quote}}</p>
+        </div>
+        
+        <div class="content-container">
+            <div class="pokemon-container">
+                <p id="pokemon-text">Favorite pokemon: {{pokemon}}</p>
+                <img src="https://assets.pokemon.com/assets/cms2/img/pokedex/full/001.png" id="pokemon-image">
+            </div>	
+            <div class="meat-container">About me: 
+                <p class="meat-text">{{about}} </p>
+            </div>	
+        </div>
+    </script>
+    
+    <script id="friends-template" type="text/x-handlebars-template">
+        <div class="friends">	
+            <h4>Friends</h4>	
+            <div class="friends-container">	
+                <ul>
+                    {{#each this}}
+                        <li>{{this}}</li>
+                    {{/each}}
+                </ul>
+            </div>	
+        </div>
+    </script>
+   
+
+
+    <script src="https://code.jquery.com/jquery-3.5.1.js" 
+    integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.7.6/handlebars.min.js" 
+    integrity="sha512-zT3zHcFYbQwjHdKjCu6OMmETx8fJA9S7E6W7kBeFxultf75OPTYUJigEKX58qgyQMi1m1EgenfjMXlRZG8BXaw==" crossorigin="anonymous"></script>
+    <script src="APIManager.js"></script>
+    <script src="Renderer.js"></script>
+    <script src="main.js"></script>
+</body>
+
+</html>
